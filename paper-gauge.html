@@ -1,0 +1,76 @@
+
+
+<style>
+	
+	:host {
+		display: inline-block;
+		width: 	 144px;
+	  height:  144px;
+	  padding: 16px;
+
+	  --dial-background-color: 	rgba(0, 0, 0, 0);
+	  --dial-color: 		 		 	 	var(--app-disabled-color);
+	  --dial-width:  		 		 	 	2;	
+	  --dial-tick-distance:  	 	none;
+	  --dial-tick-width: 	 	 	 	none;
+
+	  --label-color: 						var(--app-primary-color);
+	  --label-size:  						1em;
+	  --label-weight: 					bold;
+
+	  --value-background-color: rgba(0, 0, 0, 0);
+	  --value-color: 		 		 		var(--app-primary-color);
+	  --value-width: 				 		2;
+	  --value-tick-distance: 		none;
+	  --value-tick-width: 	 		none;
+	}
+
+	.dial {
+	  stroke: 					var(--dial-color);
+	  stroke-width: 		var(--dial-width);
+	  stroke-dasharray: var(--dial-tick-distance), var(--dial-tick-width);
+	  fill: 						var(--dial-background-color);
+	}
+
+	.label {
+	  fill: 			 var(--label-color);
+	  font-size: 	 var(--label-size);
+	  font-weight: var(--label-weight);
+	}
+
+	.label[hidden] {
+		display: none;
+	}
+
+	.value {
+	  stroke: 					var(--value-color);
+	  stroke-width: 		var(--value-width);
+	  stroke-dasharray: var(--value-tick-distance), var(--value-tick-width);
+	  fill: 						var(--value-background-color);
+	}
+
+</style>
+
+
+<svg viewBox="0 0 100 100" 
+		 xmlns="http://www.w3.org/2000/svg">
+
+	<path class="dial"
+				d$="[[_dialPath]]">
+	</path>
+
+	<text class="label"
+				hidden$="[[!label]]"
+				x="50" 
+				y="50"
+				text-anchor="middle" 
+				alignment-baseline="middle" 
+				dominant-baseline="central">
+		[[_labelVal]]
+	</text>
+
+	<path class="value" 
+				d$="[[_valuePath]]">
+	</path>
+
+</svg>
