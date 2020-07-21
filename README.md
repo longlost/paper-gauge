@@ -25,12 +25,12 @@ yarn add @longlost/paper-gauge
 <style>
 	
 	paper-gauge {
-  	--dial-width:  	8px;
-  	--label-color: 	white;
-  	--label-weight: normal;
-  	--value-color: 	orange;
-  	--value-width: 	8px;
-  }	
+  		--dial-width:  	8px;
+  		--label-color: 	white;
+  		--label-weight: normal;
+  		--value-color: 	orange;
+  		--value-width: 	8px;
+	}	
 
 </style>
 
@@ -47,7 +47,7 @@ import '@longlost/paper-gauge/paper-gauge.js';
 
 const gauge = document.querySelector('paper-gauge');
 
-gauge.max 	= 50;
+gauge.max   = 50;
 gauge.value = 20;
 
 
