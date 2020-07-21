@@ -24,13 +24,13 @@ yarn add @longlost/paper-gauge
 
 <style>
 	
-	paper-gauge {
-  		--dial-width:  	8px;
-  		--label-color: 	white;
-  		--label-weight: normal;
-  		--value-color: 	orange;
-  		--value-width: 	8px;
-	}	
+  paper-gauge {
+    --dial-width:   8px;
+    --label-color:  white;
+    --label-weight: normal;
+    --value-color:  orange;
+    --value-width:  8px;
+  }	
 
 </style>
 
