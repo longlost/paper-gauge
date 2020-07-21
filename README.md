@@ -5,7 +5,7 @@ A simple svg powered ui gauge, or radial progress, Web Component.
 
 These values are available for dynamic changes:
 
-	`radius`, `start`, `end`, `min`, `max` and `value`. 
+`radius`, `start`, `end`, `min`, `max` and `value`. 
 
 However, `value` is the only animatable property.
 
