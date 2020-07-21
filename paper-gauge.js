@@ -244,7 +244,7 @@ class PaperGauge extends AppElement {
 
 
   __computeValuePath(radius, start, end, min, max, value) {
-    if (typeof value !== 'number') { return; }
+    if (typeof value !== 'number' || min === max) { return; }
 
     const percentage = getValueInPercentage(value, Number(min), Number(max));
     const angle      = getAngle(percentage, 360 - Math.abs(Number(start) - Number(end)));
