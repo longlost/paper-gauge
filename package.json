@@ -1,6 +1,6 @@
 {
   "name": "@longlost/paper-gauge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple svg powered ui gauge, or radial progress, custom element.",
   "main": "paper-gauge.js",
   "scripts": {
