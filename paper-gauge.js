@@ -15,9 +15,9 @@
   *
   **/
 
-import {AppElement, html} from '@longlost/app-element/app-element.js';
-import {clamp}            from '@longlost/lambda/lambda.js';
-import {ease}             from '@longlost/animation/animation.js';
+import {AppElement, html} from '@longlost/app-core/app-element.js';
+import {clamp}            from '@longlost/app-core/lambda.js';
+import {ease}             from '@longlost/app-core/animation.js';
 import htmlString         from './paper-gauge.html';
 
 
