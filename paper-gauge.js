@@ -15,10 +15,10 @@
   *
   **/
 
-import {AppElement, html} from '@longlost/app-core/app-element.js';
-import {clamp}            from '@longlost/app-core/lambda.js';
-import {ease}             from '@longlost/app-core/animation.js';
-import htmlString         from './paper-gauge.html';
+import {AppElement} from '@longlost/app-core/app-element.js';
+import {clamp}      from '@longlost/app-core/lambda.js';
+import {ease}       from '@longlost/app-core/animation.js';
+import template     from './paper-gauge.html';
 
 
 /**
@@ -33,6 +33,7 @@ import htmlString         from './paper-gauge.html';
  * }
  */
 const runAnimation = options => {
+
   const {duration, easing, end, start, step} = options;
 
   const iterations = 60 * duration;
@@ -66,6 +67,7 @@ const runAnimation = options => {
 const getAngle = (percentage, gaugeSpanAngle) => percentage * gaugeSpanAngle / 100;
 
 const getValueInPercentage = (value, min, max) => {
+
   const newMax = max   - min;
   const newVal = value - min;
 
@@ -81,6 +83,7 @@ const getValueInPercentage = (value, min, max) => {
  * @return An object with x,y co-ordinates.
  */
 const getCartesian = (cx, cy, radius, angle) => {
+
   const rad = angle * Math.PI / 180;
 
   return {
@@ -93,6 +96,7 @@ const getCartesian = (cx, cy, radius, angle) => {
 // i.e. Starts at 135deg ends at 45deg with large arc flag.
 // REMEMBER!! angle = 0 starts on X axis and then increases clockwise.
 const getDialCoords = (radius, startAngle, endAngle) => {
+
   const cx = 50;
   const cy = 50;
 
@@ -104,6 +108,7 @@ const getDialCoords = (radius, startAngle, endAngle) => {
 
 // Creates the svg <path/> 'd' value.
 const pathString = (radius, startAngle, endAngle, largeArc) => {
+
   const {end, start} = getDialCoords(radius, startAngle, endAngle);
   const largeArcFlag = typeof largeArc === 'undefined' ? 1 : largeArc;
 
@@ -115,10 +120,11 @@ const pathString = (radius, startAngle, endAngle, largeArc) => {
 
 
 class PaperGauge extends AppElement {
+
   static get is() { return 'paper-gauge'; }
 
   static get template() {
-    return html([htmlString]);
+    return template;
   }
 
 
@@ -222,6 +228,7 @@ class PaperGauge extends AppElement {
 
 
   __computeDialPath(radius, start, end) {
+
     const angle = getAngle(100, 360 - Math.abs(Number(start) - Number(end)));
     const flag  = angle <= 180 ? 0 : 1;
     
@@ -230,6 +237,7 @@ class PaperGauge extends AppElement {
 
 
   __computeLabelVal(fn, value) {
+
     if (typeof value !== 'number') { return; }
 
     return fn(Number(value));
@@ -237,6 +245,7 @@ class PaperGauge extends AppElement {
 
 
   __computeNormalize(min, max) {
+
     const clamper = clamp(Number(min), Number(max));
 
     return value => clamper(Number(value));
@@ -244,6 +253,7 @@ class PaperGauge extends AppElement {
 
 
   __computeValuePath(radius, start, end, min, max, value) {
+
     if (typeof value !== 'number' || min === max) { return; }
 
     const percentage = getValueInPercentage(value, Number(min), Number(max));
@@ -257,6 +267,7 @@ class PaperGauge extends AppElement {
 
 
   __valueChanged(newVal, oldVal = 0) {
+    
     if (newVal === undefined || oldVal === newVal) {
       return;
     }
